@@ -1,0 +1,259 @@
+package Aplica;
+import java.util.Scanner;
+/**
+ *
+ * @author Fabrissio
+ */
+public class AplicaListaDoble {
+
+    static Scanner entrada = new Scanner(System.in);
+    static CListasDoble lista = new CListasDoble();
+
+    public static void main(String[] args) {
+        menu();
+    }
+
+    static void menu() {
+        int opcion;
+        do {
+            System.out.println("\nMenu de Opciones");
+            System.out.println("================");
+            System.out.println("[1] Ingresar Datos al Inicio");   
+            System.out.println("[2] Ingresar Datos al Final");     
+            System.out.println("[3] Ingresar Por Posicion");      
+            System.out.println("[4] Ingresar Por Insercion");     
+            System.out.println("[5] Eliminar Inicio");            
+            System.out.println("[6] Eliminar Final");              
+            System.out.println("[7] Eliminar Por Posicion");      
+            System.out.println("[8] Eliminar Por Insercion");
+            System.out.println("[9] Buscar Por Posicion");        
+            System.out.println("[10] Mostrar Lista Inicio - Fin");    
+            System.out.println("[11] Mostrar Lista Fin - Inicio");    
+            System.out.println("[12] Ordenar Lista");             
+            System.out.println("[13] Intercambiar Datos");        
+            System.out.println("[14] Obtener Tamaño de la lista"); 
+            System.out.println("[15] Modificar Dato");            
+
+            System.out.println("=============");
+            System.out.println("[0] Salir");
+
+            System.out.print("Ingrese una opcion: ");
+            opcion = entrada.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    ingresarInicio();
+                    break;
+
+                case 2:
+                    ingresarFinal();
+                    break;
+
+                case 3:
+                    ingresarPosicion();
+                    break;
+
+                case 4:
+                    menuIngresarXInsercion();
+                    break;
+
+                case 5:
+                    lista.eliminarInicio();
+                    break;
+
+                case 6:
+                    lista.eliminarFinal();
+                    break;
+
+                case 7:
+                    eliminarPosicion();
+                    break;
+
+                case 8:
+                    menuEliminarXInsercion();
+                    break;
+
+                case 9:
+                    buscarPosicion();
+                    break;
+
+                case 10:
+                    lista.mostrarDatosInicioFin();
+                    break;
+
+                case 11:
+                    lista.mostrarDatosFinInicio();
+                    break;
+
+                case 12:
+                    lista.ordenarLista();
+                    break;
+
+                case 13:
+                    menuIntercambiar();
+                    break;
+
+                case 14:
+                    lista.tamanoLista();
+                    break;
+
+                case 15:
+                    modificarDatos();
+                    break;
+
+                case 0:
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.print("Ingrese otra opcion...");
+            }
+
+        } while (opcion != 0);
+    }
+
+    static void ingresarInicio() {
+        System.out.print("Ingrese un numero: ");
+        int num = entrada.nextInt();
+        lista.insertarInicio(num);
+    }
+
+    static void ingresarFinal() {
+        System.out.print("Ingrese un numero: ");
+        int num = entrada.nextInt();
+        lista.insertarFinal(num);
+    }
+
+    static void ingresarPosicion() {
+        System.out.print("Ingrese un numero: ");
+        int num = entrada.nextInt();
+        lista.insertarPosicion(num);
+    }
+
+    static void menuIngresarXInsercion() {
+        int opcion1;
+        do {
+            System.out.println("\nMenu De Ingresar Por Insercion");
+            System.out.println("================");
+            System.out.println("[1] Antes del elemento");
+            System.out.println("[2] Despues del elemento");
+            System.out.println("================");
+            System.out.println("[0] Regresar menú principal");
+
+            System.out.print("Ingrese una opcion: ");
+            opcion1 = entrada.nextInt();
+
+            switch (opcion1) {
+                case 1:
+                    System.out.println("Se ingresar un nuevo elemento antes del nodo que se buscara a continuación");
+                    System.out.print("Ingrese numero: ");
+                    int num = entrada.nextInt();
+                    lista.ingresarXInsercionAntes(num);
+                    break;
+
+                case 2:
+                    System.out.println("Se ingresar un nuevo elemento despues del nodo que se buscara a continuación");
+                    System.out.print("Ingrese numero: ");
+                    num = entrada.nextInt();
+                    lista.ingresarXInsercionDespues(num);
+                    break;
+
+                case 0:
+                    menu();
+                    break;
+
+                default:
+                    System.out.print("Ingrese otra opcion...");
+            }
+        } while (opcion1 != 0);
+    }
+
+    static void eliminarPosicion() {
+        System.out.print("Ingrese posicion a eliminar: ");
+        int pos = entrada.nextInt();
+        lista.eliminarXPosicion(pos);
+    }
+
+    static void menuEliminarXInsercion() {
+        int opcion2;
+        do {
+            System.out.println("\nMenu De Eliminar Por Insercion");
+            System.out.println("================");
+            System.out.println("[1] Antes del elemento");
+            System.out.println("[2] Despues del elemento");
+            System.out.println("================");
+            System.out.println("[0] Regresar menú principal");
+
+            System.out.print("Ingrese una opcion: ");
+            opcion2 = entrada.nextInt();
+
+            switch (opcion2) {
+                case 1:
+                    System.out.println("Se eliminara el elemento anterior del nodo que se buscara a continuación");
+                    System.out.print("Ingrese numero: ");
+                    int num = entrada.nextInt();
+                    lista.eliminarXInsercionAntes(num);
+                    break;
+
+                case 2:
+                    System.out.println("Se eliminara el elemento posterior del nodo que se buscara a continuación");
+                    System.out.print("Ingrese numero: ");
+                    num = entrada.nextInt();
+                    lista.eliminarXInsercionDespues(num);
+                    break;
+
+                case 0:
+                    menu();
+                    break;
+
+                default:
+                    System.out.print("Ingrese otra opcion...");
+            }
+        } while (opcion2 != 0);
+    }
+
+    static void buscarPosicion() {
+        System.out.print("Ingrese una posicion: ");
+        int pos = entrada.nextInt();
+        lista.buscarXPosicion(pos);
+    }
+
+    static void modificarDatos() {
+        System.out.print("Ingrese numero a buscar: ");
+        int num = entrada.nextInt();
+        lista.modificarDato(num);
+    }
+
+    static void menuIntercambiar() {
+        int opcion3;
+        do {
+            System.out.println("\nMenu de Intercambios");
+            System.out.println("================");
+            System.out.println("[1] Intercambiar Menor a Primero");
+            System.out.println("[2] Intercambiar Mayor a Ultimo");
+            System.out.println("================");
+            System.out.println("[0] Regresar menú principal");
+
+            System.out.print("Ingrese una opcion: ");
+            opcion3 = entrada.nextInt();
+
+            switch (opcion3) {
+                case 1:
+                    lista.intercambiarMenorPrimero();
+                    break;
+
+                case 2:
+                    lista.intercambiarMayorUltimo();
+                    break;
+
+                case 0:
+                    menu();
+                    break;
+
+                default:
+                    System.out.print("Ingrese otra opcion...");
+            }
+        } while (opcion3 != 0);
+    }
+
+}
