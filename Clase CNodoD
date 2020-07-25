@@ -1,0 +1,48 @@
+package Aplica;
+/**
+ *
+ * @author Fabrissio
+ */
+public class CNodoD {
+    private int dato;
+    private CNodoD siguiente;
+    private CNodoD anterior;
+    
+    
+    public CNodoD(){
+        this.dato = 0;
+        this.siguiente = null;
+        this.anterior = null;
+    }
+    
+    public CNodoD(int dato, CNodoD siguiente, CNodoD anterior){
+        this.dato = dato;
+        this.siguiente = siguiente;
+        this.anterior= anterior;
+    }
+
+    public int getDato() {
+        return dato;
+    }
+
+    public void setDato(int dato) {
+        this.dato = dato;
+    }
+
+    public CNodoD getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(CNodoD siguiente) {
+        this.siguiente = siguiente;
+    }
+
+    public CNodoD getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(CNodoD anterior) {
+        this.anterior = anterior;
+    }
+    
+}
